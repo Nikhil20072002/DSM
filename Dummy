@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Right-side Menu</title>
+</head>
+<body>
+
+  <div class="container">
+    <button class="toggle-btn" onclick="toggleMenu()">Toggle Menu</button>
+    <div class="right-menu">
+      <!-- Your menu content goes here -->
+      <ul>
+        <li><a href="#">Menu Item 1</a></li>
+        <li><a href="#">Menu Item 2</a></li>
+        <li><a href="#">Menu Item 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.right-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Adjust the width as needed */
+  height: 100%;
+  width: 300px; /* Adjust the width as needed */
+  background-color: #333;
+  color: #fff;
+  transition: right 0.3s ease;
+}
+
+.right-menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.right-menu li {
+  margin-bottom: 10px;
+}
+
+.right-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+.right-menu a:hover {
+  text-decoration: underline;
+}
+
+menu.style.rightfunction toggleMenu() {
+  const menu = document.querySelector('.right-menu');
+  menu.style.right = (menu.style.right === '0px') ? `-${menu.offsetWidth}px` : '0px';
+}
